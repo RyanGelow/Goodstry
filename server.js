@@ -1,13 +1,29 @@
 const express = require("express")
-// const mongoose = require("mongoose")
-// const routes = require("./routes");
 const app = express();
-require('dotenv').config()
+
+const userRoutes = require("./routes/user");
+
+const mongoose = require("mongoose")
+
+const dotenv = require('dotenv')
+dotenv.config()
+
 const port = process.env.PORT || 3001;
 
-app.get("/", (req, res) => {
-  res.send("Hello from Goodstry")
-})
+// Mongo Database 
+const mongodb = process.env.DATABASE || "mongodb://localhost/goodstry";
+mongoose
+  .connect(mongodb, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
+  .then(() => console.log('DB Connected')); 
+
+//routes
+app.use(userRoutes);
+// app.get("/", (req, res) => {
+//   res.send("Hello from Goodstry")
+// })
 
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
@@ -15,10 +31,8 @@ app.get("/", (req, res) => {
 //   app.use(express.static("client/build"));
 // }
 
-// app.use(routes);
 
-// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/goodstry";
-// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
 
 app.listen(port, () =>
     console.log(`Server on PORT ${port}! http://localhost:${port}/`)
