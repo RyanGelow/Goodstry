@@ -1,0 +1,17 @@
+Warning { MongoNetworkError: failed to connect to server [cluster0-shard-00-00-cchdm.mongodb.net:27017] on first connect [MongoNetworkError: connection 5 to cluster0-shard-00-00-cchdm.mongodb.net:27017 closed]
+    at Pool.<anonymous> (/Users/ryangelow/Desktop/code-playground/goodstry/node_modules/mongodb-core/lib/topologies/server.js:431:11)
+    at Pool.emit (events.js:189:13)
+    at connect (/Users/ryangelow/Desktop/code-playground/goodstry/node_modules/mongodb-core/lib/connection/pool.js:557:14)
+    at callback (/Users/ryangelow/Desktop/code-playground/goodstry/node_modules/mongodb-core/lib/connection/connect.js:109:5)
+    at runCommand (/Users/ryangelow/Desktop/code-playground/goodstry/node_modules/mongodb-core/lib/connection/connect.js:129:7)
+    at Connection.errorHandler (/Users/ryangelow/Desktop/code-playground/goodstry/node_modules/mongodb-core/lib/connection/connect.js:321:5)
+    at Object.onceWrapper (events.js:277:13)
+    at Connection.emit (events.js:189:13)
+    at TLSSocket.<anonymous> (/Users/ryangelow/Desktop/code-playground/goodstry/node_modules/mongodb-core/lib/connection/connection.js:350:12)
+    at Object.onceWrapper (events.js:277:13)
+    at TLSSocket.emit (events.js:189:13)
+    at _handle.close (net.js:597:12)
+    at TCP.done (_tls_wrap.js:388:7)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
